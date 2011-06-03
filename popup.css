@@ -1,0 +1,31 @@
+/* CSS for Social Miner */
+
+html
+{
+   position: relative;
+   width: 500px;
+}
+
+body
+{
+   overflow: hidden; /*padding-top: 10px;*/
+   font-family: arial, sans-serif;
+   font-size: 0.8em;
+}
+
+img
+{
+   vertical-align: text-top;
+}
+
+#content
+{
+   width: 100%;
+   float: left;
+   padding-right: 3px;
+   margin-top: 5px;
+   max-height: 400px;
+   overflow: scroll;
+   overflow-x: hidden;
+   overflow-y: auto;
+}

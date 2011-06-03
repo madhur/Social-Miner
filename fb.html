@@ -1,0 +1,16 @@
+<p><a target="_blank" href="https://www.facebook.com/dialog/oauth?client_id=209204245784872&response_type=token&redirect_uri=http://www.facebook.com/connect/login_success.html">Facebook Connect</a></p>
+    <script>
+	console.log(localStorage.accessToken);
+        if (localStorage.accessToken) {
+            var graphUrl = "https://graph.facebook.com/me?" + localStorage.accessToken + "&callback=displayUser";
+            console.log(graphUrl);
+ 
+            var script = document.createElement("script");
+            script.src = graphUrl;
+            document.body.appendChild(script);
+ 
+            function displayUser(user) {
+                console.log(user);
+            }
+        }
+    </script>
