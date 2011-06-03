@@ -18,5 +18,5 @@
 	{
 		"matches": ["http://www.facebook.com/connect/login_success.html*"],
 		"js": ["prototype.js", "intercept_session.js"]
-	}],
+	}]
 }

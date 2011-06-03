@@ -1,1 +1,0 @@
-When one visits FB page - show the probable twitter, linkedin, github accounts.
