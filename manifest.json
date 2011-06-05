@@ -1,5 +1,5 @@
 {
-  "name": "SocialMine",
+  "name": "SocialMiner",
   
   "version": "1.0",
   
@@ -10,13 +10,13 @@
     "popup": "popup.html"
   },
   
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "http://*.facebook.com/","https://*.fbcdn.net/", "https://*.facebook.com/"],
   
   "background_page": "background.html",
   
   "content_scripts": [
 	{
 		"matches": ["http://www.facebook.com/connect/login_success.html*"],
-		"js": ["prototype.js", "intercept_session.js"]
+		"js": ["prototype.js", "intercept.js"]
 	}]
 }

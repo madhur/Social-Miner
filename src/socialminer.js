@@ -9,6 +9,7 @@ function SocialMiner()
 	
 	var that=this;
 	
+	this.FBAccessToken;
 	
 	this.getTabUrl=function(callback)
 	{
@@ -92,9 +93,26 @@ function SocialMiner()
 	}
 	
 	
-	this.GetFBProfiles=function(email)
+	this.GetFBProfiles=function(email,type)
 	{
-	
+		var searchQry="https://graph.facebook.com/search?q=madhur&type="+type+"&access_token=" + this.FBAccessToken;
+		
+		console.log(this.FBAccessToken);
+		
+		$.getJSON(searchQry, function(json)
+		{
+			console.log(json);
+			
+			$.each(json,function(index,val)
+			{
+				console.log(key);
+				console.log(val);
+				var profileId=val[0].id;
+				var imgQuery="https://graph.facebook.com/"+profileId+"/picture/";
+				
+				$("#fb-content").append('<p><img src="https://graph.facebook.com/'+profileId+'/picture"/>');
+			});
+		});
 	
 	
 	}

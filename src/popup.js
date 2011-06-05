@@ -28,8 +28,23 @@ $(document).ready(function () {
    
    $("#tabs" ).tabs();
 
+  
+
+    /*window.fbAsyncInit = function() {
+        FB.init({appId: '209204245784872', status: true, cookie: true, xfbml: true});
+    };
+    (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = "http://connect.facebook.net/en_US/all.js";
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+	
+
+    }());*/
    
-   
+  
+
    miner.getTabUrl(function(pageUrl) 
    {
 	    miner.setTabUrlValue(pageUrl);	
@@ -48,7 +63,7 @@ $(document).ready(function () {
 			
 			// Get the profile name
 			var profileName=miner.getFBProfileName(miner.tabUrl);
-			console.log(profileName);
+			console.log("Profile:"+profileName);
 			
 		   }
 		   else if(urlType=="lnkd")
@@ -62,6 +77,12 @@ $(document).ready(function () {
 			$( "#tabs" ).tabs("select", 0);
 		   }
 		   
+	    var accessToken = chrome.extension.getBackgroundPage().getItem("accesstoken");
+	    console.log(JSON.parse(accessToken));
+	    miner.FBAccessToken=JSON.parse(accessToken);
+	  //  console.log(accessToken);
+	    miner.GetFBProfiles("madhur","user");
+	    
 	    
 	    
    });

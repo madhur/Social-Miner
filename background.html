@@ -1,20 +1,67 @@
-<script type="text/javascript" src="src/prototype.js"></script>
+<script type="text/javascript" src="prototype.js"></script>
 
 <script type="text/javascript">
-var session = null;
-if(localStorage.session)
+
+
+var logging  = true;
+
+
+  function setItem(key, value) {
+    try {
+      log("Inside setItem:" + key + ":" + value);
+      window.localStorage.removeItem(key);
+      window.localStorage.setItem(key, value);
+    }catch(e) {
+      log("Error inside setItem");
+      log(e);
+    }
+    log("Return from setItem" + key + ":" +  value);
+  }
+  function getItem(key) {
+    var value;
+    log('Get Item:' + key);
+    try {
+      value = window.localStorage.getItem(key);
+    }catch(e) {
+      log("Error inside getItem() for key:" + key);
+      log(e);
+      value = "null";
+    }
+    log("Returning value: " + value);
+    return value;
+  }
+
+  function clearStrg() {
+    log('about to clear local storage');
+    window.localStorage.clear();
+    log('cleared');
+  }
+
+  function log(txt) {
+    if(logging) {
+      console.log(txt);
+    }
+  }
+  
+console.log("Entering back");
+
+var accesstoken = null;
+if(localStorage.accesstoken)
 {
-  session = JSON.parse(localStorage.session);
+  accesstoken = JSON.parse(localStorage.accesstoken);
 }
 
 chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
+  console.log(request); //this is the access token
+  console.log(sender); //this is the id of extension
+  
     if(!request.message)
       return;
 
     switch(request.message)
     {
-      case "setSession":
+      /*case "setSession":
       {
 	if(request.session == null)
 	{
@@ -32,6 +79,32 @@ chrome.extension.onRequest.addListener(
       case "getSession":
       {
 	sendResponse(session);
+	break;
+      }*/
+      
+      case "getToken":
+      {
+	sendResponse(accesstoken);
+	break;
+      }
+      
+      case "setToken":
+      {
+	console.log("token recieved");
+
+	if(request.accesstoken == null)
+	{
+	  localStorage.accesstoken = null;
+	  accesstoken = null;
+	  sendResponse();
+	  break;
+	}
+
+	localStorage.accesstoken = JSON.stringify(request.accesstoken);
+	console.log(localStorage.accesstoken);
+	accesstoken = request.accesstoken;
+	console.log(accesstoken);
+	sendResponse();
 	break;
       }
     }
