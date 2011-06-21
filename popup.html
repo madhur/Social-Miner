@@ -11,7 +11,12 @@
 	<script type="text/javascript" src="src/template-engine.js"></script>
 	<script type="text/javascript" src="src/popup.js"></script>
 	
-</head>
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+  api_key: FoOxhy90VTfQfKVuOFlwFe1t-Hmgr9479uGGvp-g6JBfCXz2wadtrmWHOU6sVdtx
+  onLoad: onLinkedInLoad
+  authorize: true
+</script>
+
 </head>
 
 <body id="body">
@@ -19,22 +24,40 @@
 <div id="fb-root"></div>
 <div id="tabs">
      <ul>
-         <li id="so"><a href="so.html"><span>Stack Overflow</span></a></li>
-         <li id="lnkd"><a href="lnkd.html"><span>LinkedIn</span></a></li>
-         <li id="fb"><a href="fb.html"><span>Facebook</span></a></li>
+         <li id="so"><a href="#soTab">Stack Overflow</a></li>
+         <li id="lnkd"><a href="lkndTab">LinkedIn</a></li>
+         <li id="fb"><a href="#fbTab">Facebook</a></li>
      </ul>
+
+
+<div id="fbTab">
+
+ <div id="fblogin">
+
+<div class="mvm uiP fsm" style="text-align: center"><a class="loginButton uiButton uiButtonLarge" role="button" href="https://www.facebook.com/dialog/oauth?client_id=209204245784872&response_type=token&scope=email&redirect_uri=http://www.facebook.com/connect/login_success.html" target="_blank"><span class="uiButtonText">Log In</span><i class="mls img sp_26h6ww sx_b0381f"></i></a></div>
+
+
 </div>
+
 
 
  <!-- Template for a Facebook !-->
  <script id="FBTemplate" type="text/html">
    
-                   
+ <div class="fbprofile">
+         <p><a href="http://www.facebook.com/profile.php?id=<#=profile.id#>" target="_new"><img src="https://graph.facebook.com/<#=profile.id#>/picture"/> <#=profile.name#></a>          
+ </div>
+                 
  </script>
+ 
+ <div id="fbcontent">
+
+ </div> 
+ </div>
 <!-- Template for a Facebook !-->
   
    
-   
+ <div id="soTab">  
 <!-- Template for a Stackoverflow !-->
  <script id="SOTemplate" type="text/html">
     <div id="so-content">
@@ -42,9 +65,11 @@
     </div>
                    
  </script>
+ </div>
 <!-- Template for a Stackoverflow !-->
 
 
+<div id="lkndTab">
 <!-- Template for a LinkedIn !-->
  <script id="LKPDTemplate" type="text/html">
     <div id="lknd-content">
@@ -53,4 +78,8 @@
                    
  </script>
 <!-- Template for a LinkedIn !-->
-          
+</div>        
+
+ 
+
+</div>
