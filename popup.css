@@ -29,3 +29,44 @@ img
    overflow-x: hidden;
    overflow-y: auto;
 }
+
+
+
+/* Styles the div wrapper
+the important part is the
+width and the height */
+#list{
+    
+    /*Influences layout of list*/
+    height:600px;
+    width:600px;
+    
+/*    background-color: #000;*/
+    
+    /* Keeps list inside of wrapper*/
+    position:relative;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+/* Reset the list*/
+#list ul,
+#list li{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+/* List requires an absolute position
+so jQuery can move the items around
+freely */
+#list a{
+    position:absolute;
+    text-decoration: none;
+    /*color:#666;*/
+    color:black;
+}
+#list a:hover{
+    color:#ccc;
+}
+

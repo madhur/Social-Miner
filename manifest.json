@@ -18,5 +18,12 @@
 	{
 		"matches": ["http://www.facebook.com/connect/login_success.html*"],
 		"js": ["prototype.js", "intercept.js"]
-	}]
+	},
+	{
+		"matches":["http://*/*"],
+		"js":["jquery.js","keywords.js"]
+	
+	}
+	
+	]
 }

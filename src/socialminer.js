@@ -175,7 +175,7 @@ function SocialMiner()
 		})
 		.error(function()
 		{
-			alert('failed');
+			//alert('failed');
 			callback(null);
 		
 		});

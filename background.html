@@ -107,6 +107,18 @@ chrome.extension.onRequest.addListener(
 	sendResponse();
 	break;
       }
+      
+      case "setKeywords":
+      {
+      
+      	console.log("keywords recieved");
+      
+      	localStorage.keywords = JSON.stringify(request.keywords);     
+	console.log(localStorage.keywords);	
+	sendResponse();
+	break;
+      
+      }
     }
   });
 </script>

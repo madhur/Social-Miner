@@ -11,17 +11,34 @@
 	<script type="text/javascript" src="src/template-engine.js"></script>
 	<script type="text/javascript" src="src/popup.js"></script>
 	
-<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+<!--<script type="text/javascript" src="http://platform.linkedin.com/in.js">
   api_key: FoOxhy90VTfQfKVuOFlwFe1t-Hmgr9479uGGvp-g6JBfCXz2wadtrmWHOU6sVdtx
   onLoad: onLinkedInLoad
   authorize: true
-</script>
+</script>-->
 
 </head>
 
 <body id="body">
 
 <div id="fb-root"></div>
+
+<div id="parenttabs">
+<ul>
+	<li id="tagcloud"><a href="#tagcloudtab">Keywords</a></li>
+	<li id="profiles"><a href="#profilestab">Profiles</a></li>
+</ul>
+
+<div id="tagcloudtab">
+<div id="list">
+<ul>
+
+</ul>
+
+</div>
+</div>
+
+<div id="profilestab">
 <div id="tabs">
      <ul>
          <li id="so"><a href="#soTab">Stack Overflow</a></li>
@@ -34,7 +51,7 @@
 
  <div id="fblogin">
 
-<div class="mvm uiP fsm" style="text-align: center"><a class="loginButton uiButton uiButtonLarge" role="button" href="https://www.facebook.com/dialog/oauth?client_id=209204245784872&response_type=token&scope=email&redirect_uri=http://www.facebook.com/connect/login_success.html" target="_blank"><span class="uiButtonText">Log In</span><i class="mls img sp_26h6ww sx_b0381f"></i></a></div>
+	<div class="mvm uiP fsm" style="text-align: center"><a class="loginButton uiButton uiButtonLarge" role="button" href="https://www.facebook.com/dialog/oauth?client_id=209204245784872&response_type=token&scope=email&redirect_uri=http://www.facebook.com/connect/login_success.html" target="_blank"><span class="uiButtonText">Log In</span><i class="mls img sp_26h6ww sx_b0381f"></i></a></div>
 
 
 </div>
@@ -53,7 +70,7 @@
  <div id="fbcontent">
 
  </div> 
- </div>
+ </div><!--fb tab ends-->
 <!-- Template for a Facebook !-->
   
    
@@ -82,4 +99,7 @@
 
  
 
+</div>
+
+</div>
 </div>
