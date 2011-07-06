@@ -11,12 +11,7 @@ function EnsureFBToken()
 
 }
 
-function renderContents()
-{
 
-	
-
-}
 
 function setupTagCloud()
 {
@@ -111,8 +106,40 @@ function mineprofiles(event)
 console.log(this.text);
 var str=this.text;
 mineFBProfilesByName(str);
+mineSOProfilesByName(str);
+
 
 }
+
+
+function mineSOProfilesByName(profileName)
+{
+miner.GetSOProfiles(function(profileArray)
+					    {
+					    // error condition, fb not logged in
+						if(profileArray==null)
+						{
+							//$("#fblogin").show();
+							return;
+						
+						}
+						//$("#fblogin").hide();
+						
+						    console.log(profileArray);
+						    $.each(profileArray, function(index, profileObj)
+						    {
+							    console.log(profileObj);
+							    var fbHtml=parseTemplate($("#SOTemplate").html(), { profile: profileObj});
+							    //console.log(fbHtml);
+							    $(fbHtml).appendTo("#socontent");
+						    });
+						    
+					    }, profileName,"user");
+
+
+}
+
+
 
 function mineFBProfilesByName(profileName)
 {
@@ -136,14 +163,14 @@ function mineFBProfilesByName(profileName)
 						    {
 							    console.log(profileObj);
 							    var fbHtml=parseTemplate($("#FBTemplate").html(), { profile: profileObj});
-							    console.log(fbHtml);
+							    //console.log(fbHtml);
 							    $(fbHtml).appendTo("#fbcontent");
 						    });
 						    
 					    }, profileName,"user");
 
-
-
+$("#parenttabs" ).tabs("select",1);
+$( "#tabs" ).tabs("select", 2);
 
 }
 
@@ -283,8 +310,6 @@ $(document).ready(function () {
 	   
    });
 
- 
-   renderContents();
 
   
 });

@@ -3,7 +3,7 @@ function SocialMiner()
  
 	var verbose=true;
    
-	var profileArray=new Array();
+	
 	
 	this.tabUrl;
 	
@@ -125,13 +125,55 @@ function SocialMiner()
 	
 	}
 	
+	this.GetSOProfiles=function(callback, email, type)
+	{
+		var profileArray=new Array();
+		var searchQry="http://api.stackoverflow.com/1.1/users?filter="+email;
+		console.log(searchQry);
+		
+		$.getJSON(searchQry, function(json)
+		{
+			$.each(json.users,function(index,val)
+			{
+				var profileId=val.user_id;
+				var profileName=val.display_name;
+				
+				var profileObject = 
+				{
+				    "id": profileId,
+				    "name": profileName
+				  
+				 };
+			
+				profileArray.push(profileObject);
+				
+				
+				//console.log(profileArray.length);
+			});
+		
+		
+			callback(profileArray);
+		
+		})
+		.error(function()
+		{
+			//alert('failed');
+			callback(null);
+		
+		});
 	
+	
+	
+	
+	
+	
+	}
 	this.GetFBProfiles=function(callback, email,type)
 	{
-		 
+		var profileArray=new Array();
 		var searchQry="https://graph.facebook.com/search?q="+email+"&type="+type+"&access_token=" + this.FBAccessToken;
-		
-		console.log(this.FBAccessToken);
+		console.log(searchQry);
+//		console.log(this.FBAccessToken);
 		
 		$.getJSON(searchQry, function(json)
 		{
@@ -140,8 +182,8 @@ function SocialMiner()
 			$.each(json.data,function(index,val)
 			{
 				
-				console.log(val.id);
-				console.log(val.name);
+				//console.log(val.id);
+				//console.log(val.name);
 				var profileId=val.id;
 				var profileName=val.name;
 				
@@ -157,7 +199,7 @@ function SocialMiner()
 				profileArray.push(profileObject);
 				
 				
-				console.log(profileArray.length);
+				//console.log(profileArray.length);
 				
 				
 				

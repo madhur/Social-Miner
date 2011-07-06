@@ -12,7 +12,7 @@ var expires=getQueryVariable("expires_in", querystring);
 	chrome.extension.sendRequest({message: "setToken", accesstoken: accesstoken}, function() 
 	{
 	  // The data has been sent, we can close the window now.
-	  //window.close();
+	  window.close();
 	});
 
 

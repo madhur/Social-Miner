@@ -1,5 +1,6 @@
 var keywordsArray=new Array();
-
+console.log("keywords page");
+console.log(keywordsArray);
 var keywords={
 
 	f1:function()
@@ -17,7 +18,7 @@ var keywords={
 	
 	f3:function()
 	{
-		 var elems=["h1","h2","h3","h4","h5","h6"];
+		 var elems=["h1","h2"];
 		 var harr=new Array();
 		 $.each(elems, function(index, hi)
 		 {

@@ -10,7 +10,7 @@
     "popup": "popup.html"
   },
   
-  "permissions": ["tabs", "http://*.facebook.com/","https://*.fbcdn.net/", "https://*.facebook.com/"],
+  "permissions": ["tabs", "http://*.facebook.com/","https://*.fbcdn.net/", "https://*.facebook.com/", "http://*.stackoverflow.com/"],
   
   "background_page": "background.html",
   
@@ -20,7 +20,7 @@
 		"js": ["prototype.js", "intercept.js"]
 	},
 	{
-		"matches":["http://*/*"],
+		"matches":["<all_urls>"],
 		"js":["jquery.js","keywords.js"]
 	
 	}
